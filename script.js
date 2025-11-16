@@ -1,0 +1,168 @@
+// Dark mode is permanent - no toggle needed
+const html = document.documentElement;
+html.classList.add('dark');
+
+// Mobile Menu Toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+// Close mobile menu when clicking a link
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+    });
+});
+
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offsetTop = target.offsetTop - 64; // Account for fixed navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Scroll to top button
+const scrollTopButton = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollTopButton.classList.remove('opacity-0', 'invisible');
+        scrollTopButton.classList.add('opacity-100', 'visible');
+    } else {
+        scrollTopButton.classList.add('opacity-0', 'invisible');
+        scrollTopButton.classList.remove('opacity-100', 'visible');
+    }
+});
+
+scrollTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(section);
+});
+
+// Active navigation link highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+function highlightNavigation() {
+    const scrollPosition = window.pageYOffset + 100;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-semibold');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('text-primary', 'font-semibold');
+                }
+            });
+        }
+    });
+}
+
+window.addEventListener('scroll', highlightNavigation);
+
+// Add typing effect to hero section
+const heroTitle = document.querySelector('#home h1 span');
+if (heroTitle) {
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    heroTitle.style.opacity = '1';
+
+    let i = 0;
+    const typeWriter = () => {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+
+    setTimeout(typeWriter, 500);
+}
+
+// Add hover effect to project cards
+const projectCards = document.querySelectorAll('.card-hover');
+projectCards.forEach(card => {
+    card.addEventListener('mouseenter', function () {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Skill tags animation on scroll
+const skillTags = document.querySelectorAll('.skill-tag');
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'scale(1)';
+            }, index * 50);
+        }
+    });
+}, { threshold: 0.5 });
+
+skillTags.forEach(tag => {
+    tag.style.opacity = '0';
+    tag.style.transform = 'scale(0.8)';
+    tag.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    skillObserver.observe(tag);
+});
+
+// Add parallax effect to hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('#home');
+    if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+    }
+});
+
+// Console message
+console.log('%c¡Hola! 👋', 'font-size: 20px; font-weight: bold; color: #60a5fa;');
+console.log('%c¿Interesado en el código? Visita mi GitHub!', 'font-size: 14px; color: #3b82f6;');
+console.log('%chttps://github.com/sergio-calderon', 'font-size: 12px; color: #60a5fa;');

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sergio Calderon - Junior Software Engineer Portfolio">
+    <title>Sergio Calderon | Software Engineer</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            border-color: #27272a;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #09090b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #27272a;
+            border-radius: 9999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #3f3f46;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .navbar-blur {
+            backdrop-filter: blur(12px);
+            background-color: rgba(9, 9, 11, 0.9);
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#60a5fa',
+                        secondary: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 navbar-blur border-b border-zinc-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-2xl font-bold gradient-text">SC</a>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-primary transition-colors">Inicio</a>
+                    <a href="#about" class="hover:text-primary transition-colors">Sobre Mí</a>
+                    <a href="#experience" class="hover:text-primary transition-colors">Experiencia</a>
+                    <a href="#projects" class="hover:text-primary transition-colors">Proyectos</a>
+                    <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contacto</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-zinc-800">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#home" class="block hover:text-primary transition-colors">Inicio</a>
+                <a href="#about" class="block hover:text-primary transition-colors">Sobre Mí</a>
+                <a href="#experience" class="block hover:text-primary transition-colors">Experiencia</a>
+                <a href="#projects" class="block hover:text-primary transition-colors">Proyectos</a>
+                <a href="#skills" class="block hover:text-primary transition-colors">Skills</a>
+                <a href="#contact" class="block hover:text-primary transition-colors">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="animate-fadeInUp">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                    <span class="gradient-text">SERGIO CALDERON</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-zinc-400 mb-6">
+                    Software Engineer
+                </h2>
+                <p class="text-lg md:text-xl text-zinc-400 mb-8 max-w-2xl mx-auto text-balance">
+                    <i class="fas fa-map-marker-alt text-primary mr-2"></i>Zapopan, Guadalajara
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 bg-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Sobre Mí</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Educación</h3>
+                    <div class="bg-zinc-950 p-6 rounded-lg mb-6 border border-zinc-800">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h4 class="text-xl font-semibold">Universidad del Valle de México</h4>
+                                <p class="text-primary font-medium">COMPUTER SYSTEMS ENGINEERING</p>
+                            </div>
+                            <span class="text-sm text-zinc-400">2027</span>
+                        </div>
+                        <p class="text-zinc-400 mb-3">Zapopan, Guadalajara</p>
+                        <p class="text-sm text-zinc-300">
+                            Formación en desarrollo de software, redes, bases de datos, inteligencia artificial y
+                            ciberseguridad.
+                        </p>
+                    </div>
+
+                    <h4 class="font-semibold mb-3">Cursos Destacados:</h4>
+                    <ul class="space-y-2 text-zinc-300">
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Programación Orientada a Objetos (OOP)
+                        </li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Bases de Datos Relacionales & Avanzadas
+                        </li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Programación Concurrente</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Sistemas Basados en Conocimiento</li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Seguridad Informática & Forense Digital
+                        </li>
+                        <li><i class="fas fa-check-circle text-primary mr-2"></i>Ciberseguridad de Redes</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Certificaciones</h3>
+                    <div class="space-y-4">
+                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                            <h4 class="font-semibold text-lg mb-1">Microsoft Azure</h4>
+                            <p class="text-sm text-zinc-400">Microsoft</p>
+                        </div>
+                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                            <h4 class="font-semibold text-lg mb-1">Introduction to Networks</h4>
+                            <p class="text-sm text-zinc-400">Cisco</p>
+                        </div>
+                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                            <h4 class="font-semibold text-lg mb-1">Prompt Engineering</h4>
+                            <p class="text-sm text-zinc-400">Hola Mundo</p>
+                        </div>
+                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                            <h4 class="font-semibold text-lg mb-1">SQL</h4>
+                            <p class="text-sm text-zinc-400">Hola Mundo</p>
+                        </div>
+                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                            <h4 class="font-semibold text-lg mb-1">Linux</h4>
+                            <p class="text-sm text-zinc-400">Hola Mundo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Experiencia Laboral</h2>
+
+            <div class="bg-zinc-900 p-8 rounded-lg shadow-lg card-hover border border-zinc-800">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">IT INTERN</h3>
+                        <p class="text-primary font-semibold text-lg">Comercializadora Frangrit</p>
+                    </div>
+                    <span class="text-sm bg-primary text-white px-4 py-2 rounded-full mt-2 md:mt-0">Jun - Sep
+                        2025</span>
+                </div>
+
+                <ul class="space-y-4 text-zinc-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-cog text-primary mr-3 mt-1 flex-shrink-0"></i>
+                        <span>Diseñé flujos de trabajo internos personalizando vistas Odoo (XML, Python,
+                            JavaScript, SQL) para optimizar operaciones y mejorar la consistencia de
+                            datos.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-shopping-cart text-primary mr-3 mt-1 flex-shrink-0"></i>
+                        <span>Construí y lancé un kiosco de verificación de precios y un catálogo de
+                            productos responsive con inventario en tiempo real, acelerando búsquedas y
+                            mejorando la experiencia de usuario/personal.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-tools text-primary mr-3 mt-1 flex-shrink-0"></i>
+                        <span>Mantuve operaciones mediante soporte técnico (PCs, impresoras, cableado),
+                            generé informes Power BI/Excel para toma de decisiones, y administré
+                            WordPress/cPanel para mantener una plataforma web estable y escalable.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 bg-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Proyectos Destacados</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-zinc-950 rounded-lg overflow-hidden shadow-lg card-hover border border-zinc-800">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">Record Management System</h3>
+                            <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <p class="text-zinc-400 mb-4 text-balance">
+                            Sistema de gestión personal con REST APIs, 2FA, CSRF, rate limiting y bcrypt. Dashboard
+                            responsive con JS usando Application Factory + blueprints para arquitectura escalable y
+                            mantenible.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">Python</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">Flask</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">MySQL</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">REST API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-zinc-950 rounded-lg overflow-hidden shadow-lg card-hover border border-zinc-800">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">ChatBot - Synapse AI</h3>
+                            <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <p class="text-zinc-400 mb-4 text-balance">
+                            Chatbot web interactivo con OpenAI APIs, REST endpoints, historial persistente, CRUD de
+                            chats, selección dinámica de modelos, validación de entrada y manejo centralizado de errores
+                            usando Application Factory.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">Python</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">Flask</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">OpenAI</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">REST API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-zinc-950 rounded-lg overflow-hidden shadow-lg card-hover border border-zinc-800">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">Portfolio</h3>
+                            <a href="#" class="text-primary hover:text-secondary transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <p class="text-zinc-400 mb-4 text-balance">
+                            Portafolio SPA (HTML5, CSS3, Bootstrap, JavaScript, jQuery) con diseño responsive, secciones
+                            animadas, galería lightbox y formulario de contacto PHP/SMTP con sanitización de entrada y
+                            protección CSRF, usando gestión modular de assets para mantenibilidad.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">HTML5</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">CSS3</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">Bootstrap</span>
+                            <span class="px-3 py-1 rounded-full text-sm border border-zinc-800">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Habilidades Técnicas</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-zinc-900 p-6 rounded-lg shadow-lg border border-zinc-800">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-code text-primary mr-3"></i>
+                        Lenguajes de Programación
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">Python</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">JavaScript</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">HTML/CSS</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">C++</span>
+                    </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="bg-zinc-900 p-6 rounded-lg shadow-lg border border-zinc-800">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-layer-group text-primary mr-3"></i>
+                        Tech Stack
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">Flask</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">MySQL</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">PostgreSQL</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">Linux</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">Git</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">Terminal</span>
+                        <span class="skill-tag px-3 py-2 bg-zinc-800 rounded-lg text-sm">Claude
+                            Code</span>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="bg-zinc-900 p-6 rounded-lg shadow-lg border border-zinc-800">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-language text-primary mr-3"></i>
+                        Idiomas
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Español</span>
+                                <span class="text-primary font-semibold">Nativo</span>
+                            </div>
+                            <div class="w-full bg-zinc-800 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full"
+                                    style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Inglés</span>
+                                <span class="text-primary font-semibold">B1+</span>
+                            </div>
+                            <div class="w-full bg-zinc-800 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full"
+                                    style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-zinc-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6 gradient-text">¿Trabajemos Juntos?</h2>
+            <p class="text-xl text-zinc-400 mb-12 text-balance">
+                Estoy disponible para oportunidades de desarrollo de software y colaboración en proyectos interesantes.
+            </p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-zinc-950 rounded-lg border border-zinc-800 hover:border-primary transition-all">
+                    <i class="fas fa-envelope text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold mb-2">Email</h3>
+                    <a href="mailto:sergaio.calderoon@gmail.com"
+                        class="text-zinc-400 hover:text-primary text-sm break-all">
+                        sergaio.calderoon@gmail.com
+                    </a>
+                </div>
+
+                <div class="p-6 bg-zinc-950 rounded-lg border border-zinc-800 hover:border-primary transition-all">
+                    <i class="fas fa-map-marker-alt text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold mb-2">Ubicación</h3>
+                    <p class="text-zinc-400 text-sm">
+                        Zapopan, Guadalajara
+                    </p>
+                </div>
+
+                <a href="https://www.linkedin.com/in/sergio-calderon" target="_blank"
+                    class="p-6 bg-zinc-950 rounded-lg border border-zinc-800 hover:border-primary transition-all block">
+                    <i class="fab fa-linkedin text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold mb-2">LinkedIn</h3>
+                    <p class="text-zinc-400 text-sm">
+                        Perfil profesional
+                    </p>
+                </a>
+
+                <a href="https://github.com/sergio-calderon" target="_blank"
+                    class="p-6 bg-zinc-950 rounded-lg border border-zinc-800 hover:border-primary transition-all block">
+                    <i class="fab fa-github text-4xl text-primary mb-4"></i>
+                    <h3 class="font-semibold mb-2">GitHub</h3>
+                    <p class="text-zinc-400 text-sm">
+                        Repositorios
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-zinc-800">
+        <div class="max-w-6xl mx-auto text-center text-zinc-400">
+            <p>&copy; 2025 Sergio Calderon. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scroll-top"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all hover:bg-secondary">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
