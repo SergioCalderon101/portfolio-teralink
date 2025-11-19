@@ -162,7 +162,52 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Console message
-console.log('%c¡Hola! 👋', 'font-size: 20px; font-weight: bold; color: #60a5fa;');
-console.log('%c¿Interesado en el código? Visita mi GitHub!', 'font-size: 14px; color: #3b82f6;');
-console.log('%chttps://github.com/sergio-calderon', 'font-size: 12px; color: #60a5fa;');
+// Dynamic typing effect for roles
+const roles = ['Software Engineer', 'Backend Developer', 'Python Developer', 'Database Architect'];
+const roleElement = document.getElementById('typing-role');
+let roleIndex = 0;
+let charIndex = roles[0].length; // Start with full text
+let isDeleting = false;
+let typeSpeed = 100;
+
+function typeRole() {
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+        roleElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+    } else {
+        roleElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100;
+    }
+
+    if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        typeSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500; // Pause before typing next
+    }
+
+    setTimeout(typeRole, typeSpeed);
+}
+
+// Start the typing effect if element exists
+if (roleElement) {
+    // Initial pause before starting to delete the first role
+    setTimeout(() => {
+        isDeleting = true;
+        typeRole();
+    }, 2000);
+}
+
+// Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('scroll-progress').style.width = scrolled + '%';
+});
