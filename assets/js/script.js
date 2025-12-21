@@ -2,7 +2,7 @@
 console.log('===== SCRIPT.JS LOADED =====');
 
 // Wrap all DOM-dependent code in DOMContentLoaded to ensure elements are ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('===== DOM CONTENT LOADED =====');
 
     // Dark mode is permanent - no toggle needed
@@ -124,62 +124,62 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add typing effect to hero section
     const heroTitle = document.querySelector('#home h1 span');
     if (heroTitle) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    heroTitle.style.opacity = '1';
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        heroTitle.style.opacity = '1';
 
-    let i = 0;
-    const typeWriter = () => {
-        if (i < text.length) {
-            heroTitle.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    };
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                heroTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
 
-    setTimeout(typeWriter, 500);
+        setTimeout(typeWriter, 500);
     }
 
     // Add hover effect to project cards
     const projectCards = document.querySelectorAll('.card-hover');
     projectCards.forEach(card => {
-    card.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
 
-    card.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
     });
 
     // Skill tags animation on scroll
     const skillTags = document.querySelectorAll('.skill-tag');
     const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'scale(1)';
-            }, index * 50);
-        }
-    });
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'scale(1)';
+                }, index * 50);
+            }
+        });
     }, { threshold: 0.5 });
 
     skillTags.forEach(tag => {
-    tag.style.opacity = '0';
-    tag.style.transform = 'scale(0.8)';
-    tag.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-    skillObserver.observe(tag);
+        tag.style.opacity = '0';
+        tag.style.transform = 'scale(0.8)';
+        tag.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        skillObserver.observe(tag);
     });
 
     // Add parallax effect to hero section
     window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('#home');
-    if (hero && scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
-    }
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('#home');
+        if (hero && scrolled < window.innerHeight) {
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+        }
     });
 
     console.log('Checkpoint 3: After Parallax Effect');
@@ -193,50 +193,50 @@ document.addEventListener('DOMContentLoaded', function() {
     let typeSpeed = 100;
 
     function typeRole() {
-    if (!roleElement) return; // Safety check
+        if (!roleElement) return; // Safety check
 
-    const currentRole = roles[roleIndex];
+        const currentRole = roles[roleIndex];
 
-    if (isDeleting) {
-        roleElement.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-        typeSpeed = 50;
-    } else {
-        roleElement.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-        typeSpeed = 100;
-    }
+        if (isDeleting) {
+            roleElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 50;
+        } else {
+            roleElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 100;
+        }
 
-    if (!isDeleting && charIndex === currentRole.length) {
-        isDeleting = true;
-        typeSpeed = 2000; // Pause at end
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        typeSpeed = 500; // Pause before typing next
-    }
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            typeSpeed = 2000; // Pause at end
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 500; // Pause before typing next
+        }
 
-    setTimeout(typeRole, typeSpeed);
+        setTimeout(typeRole, typeSpeed);
     }
 
     // Start the typing effect if element exists
     if (roleElement) {
-    // Initial pause before starting to delete the first role
-    setTimeout(() => {
-        isDeleting = true;
-        typeRole();
-    }, 2000);
+        // Initial pause before starting to delete the first role
+        setTimeout(() => {
+            isDeleting = true;
+            typeRole();
+        }, 2000);
     }
 
     // Scroll Progress Bar
     const scrollProgressBar = document.getElementById('scroll-progress');
     if (scrollProgressBar) {
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        scrollProgressBar.style.width = scrolled + '%';
-    });
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgressBar.style.width = scrolled + '%';
+        });
     }
 
     console.log('Checkpoint 4: After Scroll Progress Bar');
@@ -256,31 +256,30 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('- toggleIcon:', toggleIcon);
 
     if (toggleCertificatesBtn && additionalCertificates && toggleText && toggleIcon) {
-    console.log('All elements found! Adding click listener...');
+        console.log('All elements found! Adding click listener...');
 
-    // Detect language from HTML lang attribute
-    const isSpanish = document.documentElement.lang === 'es';
-    const showAllText = isSpanish ? 'Ver todos los certificados' : 'Show all certificates';
-    const showLessText = isSpanish ? 'Ver menos' : 'Show less';
+        // Detect language from HTML lang attribute
+        const isSpanish = document.documentElement.lang === 'es';
+        const showAllText = isSpanish ? 'Ver todos los certificados' : 'Show all certificates';
+        const showLessText = isSpanish ? 'Ver menos' : 'Show less';
 
-    toggleCertificatesBtn.addEventListener('click', (e) => {
-        console.log('Button clicked!');
-        e.preventDefault();
-        e.stopPropagation();
+        toggleCertificatesBtn.addEventListener('click', function () {
+            console.log('Button clicked!');
 
-        additionalCertificates.classList.toggle('hidden');
-        console.log('Hidden class toggled. Current classes:', additionalCertificates.className);
+            const isHidden = additionalCertificates.classList.contains('hidden');
 
-        if (additionalCertificates.classList.contains('hidden')) {
-            toggleText.textContent = showAllText;
-            toggleIcon.style.transform = 'rotate(0deg)';
-        } else {
-            toggleText.textContent = showLessText;
-            toggleIcon.style.transform = 'rotate(180deg)';
-        }
-    });
+            if (isHidden) {
+                additionalCertificates.classList.remove('hidden');
+                toggleText.textContent = showLessText;
+                toggleIcon.style.transform = 'rotate(180deg)';
+            } else {
+                additionalCertificates.classList.add('hidden');
+                toggleText.textContent = showAllText;
+                toggleIcon.style.transform = 'rotate(0deg)';
+            }
+        });
     } else {
-    console.log('ERROR: Some elements not found!');
+        console.log('ERROR: Some elements not found!');
     }
 
 }); // End of DOMContentLoaded
