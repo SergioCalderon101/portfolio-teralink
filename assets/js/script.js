@@ -1,34 +1,44 @@
+// SCRIPT LOADED - Testing
+console.log('===== SCRIPT.JS LOADED =====');
+
 // Dark mode is permanent - no toggle needed
 const html = document.documentElement;
 html.classList.add('dark');
+console.log('Dark mode activated');
 
 // Mobile Menu Toggle
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
 
-mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
-
-// Close mobile menu when clicking a link
-const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
     });
-});
+
+    // Close mobile menu when clicking a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+}
 
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 64; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+        const href = this.getAttribute('href');
+        // Only process valid anchors (not just '#')
+        if (href && href !== '#' && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const offsetTop = target.offsetTop - 64; // Account for fixed navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });
@@ -36,22 +46,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Scroll to top button
 const scrollTopButton = document.getElementById('scroll-top');
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollTopButton.classList.remove('opacity-0', 'invisible');
-        scrollTopButton.classList.add('opacity-100', 'visible');
-    } else {
-        scrollTopButton.classList.add('opacity-0', 'invisible');
-        scrollTopButton.classList.remove('opacity-100', 'visible');
-    }
-});
-
-scrollTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (scrollTopButton) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopButton.classList.remove('opacity-0', 'invisible');
+            scrollTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            scrollTopButton.classList.add('opacity-0', 'invisible');
+            scrollTopButton.classList.remove('opacity-100', 'visible');
+        }
     });
-});
+
+    scrollTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+console.log('Checkpoint 1: After Scroll Top Button');
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -98,6 +112,8 @@ function highlightNavigation() {
         }
     });
 }
+
+console.log('Checkpoint 2: After Navigation Highlighting');
 
 window.addEventListener('scroll', highlightNavigation);
 
@@ -162,6 +178,8 @@ window.addEventListener('scroll', () => {
     }
 });
 
+console.log('Checkpoint 3: After Parallax Effect');
+
 // Dynamic typing effect for roles
 const roles = ['Software Engineer', 'Backend Developer', 'Python Developer', 'Database Architect'];
 const roleElement = document.getElementById('typing-role');
@@ -171,6 +189,8 @@ let isDeleting = false;
 let typeSpeed = 100;
 
 function typeRole() {
+    if (!roleElement) return; // Safety check
+
     const currentRole = roles[roleIndex];
 
     if (isDeleting) {
@@ -205,9 +225,56 @@ if (roleElement) {
 }
 
 // Scroll Progress Bar
-window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById('scroll-progress').style.width = scrolled + '%';
-});
+const scrollProgressBar = document.getElementById('scroll-progress');
+if (scrollProgressBar) {
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgressBar.style.width = scrolled + '%';
+    });
+}
+
+console.log('Checkpoint 4: After Scroll Progress Bar');
+
+// Toggle Certificates
+console.log('===== STARTING TOGGLE CERTIFICATES SECTION =====');
+const toggleCertificatesBtn = document.getElementById('toggle-certificates');
+const additionalCertificates = document.getElementById('additional-certificates');
+const toggleText = document.getElementById('toggle-certificates-text');
+const toggleIcon = document.getElementById('toggle-certificates-icon');
+
+// Debug: log what elements were found
+console.log('Toggle Certificates Debug:');
+console.log('- toggleCertificatesBtn:', toggleCertificatesBtn);
+console.log('- additionalCertificates:', additionalCertificates);
+console.log('- toggleText:', toggleText);
+console.log('- toggleIcon:', toggleIcon);
+
+if (toggleCertificatesBtn && additionalCertificates && toggleText && toggleIcon) {
+    console.log('All elements found! Adding click listener...');
+
+    // Detect language from HTML lang attribute
+    const isSpanish = document.documentElement.lang === 'es';
+    const showAllText = isSpanish ? 'Ver todos los certificados' : 'Show all certificates';
+    const showLessText = isSpanish ? 'Ver menos' : 'Show less';
+
+    toggleCertificatesBtn.addEventListener('click', (e) => {
+        console.log('Button clicked!');
+        e.preventDefault();
+        e.stopPropagation();
+
+        additionalCertificates.classList.toggle('hidden');
+        console.log('Hidden class toggled. Current classes:', additionalCertificates.className);
+
+        if (additionalCertificates.classList.contains('hidden')) {
+            toggleText.textContent = showAllText;
+            toggleIcon.style.transform = 'rotate(0deg)';
+        } else {
+            toggleText.textContent = showLessText;
+            toggleIcon.style.transform = 'rotate(180deg)';
+        }
+    });
+} else {
+    console.log('ERROR: Some elements not found!');
+}

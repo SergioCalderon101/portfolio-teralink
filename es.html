@@ -9,7 +9,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -256,42 +256,16 @@
 
                 <div>
                     <h3 class="text-2xl font-bold mb-4">Certificaciones</h3>
-                    <div class="space-y-4">
+                    <div id="certifications-container" class="space-y-4">
+                        <!-- 1. Fundamentos de Arquitectura de Software -->
                         <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
-                            <h4 class="font-semibold text-lg mb-1">Data & Cybersecurity</h4>
-                            <p class="text-sm text-zinc-400">Coursera —
-                                <a href="https://coursera.org/share/53b7b7c32953d9ceff5eb8f9cac1ee1d" target="_blank"
-                                    class="text-primary hover:underline">Ver certificado</a>
-                            </p>
-                        </div>
-                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
-                            <h4 class="font-semibold text-lg mb-1">Microsoft Azure</h4>
-                            <p class="text-sm text-zinc-400">Microsoft —
-                                <a href="https://coursera.org/share/600b8b094aae2c85861a7f0ba7e2d74c" target="_blank"
-                                    class="text-primary hover:underline">Ver certificado</a>
-                            </p>
-                        </div>
-                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
-                            <h4 class="font-semibold text-lg mb-1">Introduction to Networks</h4>
-                            <p class="text-sm text-zinc-400">Cisco —
-                                <a href="https://www.credly.com/badges/14675e82-62fc-4b6b-9c27-c35db2764168/linked_in_profile"
+                            <h4 class="font-semibold text-lg mb-1">Fundamentos de Arquitectura de Software</h4>
+                            <p class="text-sm text-zinc-400">Platzi —
+                                <a href="https://platzi.com/p/sergioo.calderonn/curso/12061-fundamentos-arquitectura-software/diploma/detalle/"
                                     target="_blank" class="text-primary hover:underline">Ver certificado</a>
                             </p>
                         </div>
-                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
-                            <h4 class="font-semibold text-lg mb-1">Prompt Engineering</h4>
-                            <p class="text-sm text-zinc-400">Hola Mundo —
-                                <a href="https://academia.holamundo.io/certificates/b4cbubfxhh" target="_blank"
-                                    class="text-primary hover:underline">Ver certificado</a>
-                            </p>
-                        </div>
-                        <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
-                            <h4 class="font-semibold text-lg mb-1">SQL Sin Fronteras</h4>
-                            <p class="text-sm text-zinc-400">Hola Mundo —
-                                <a href="https://academia.holamundo.io/certificates/f6gb9vc89t" target="_blank"
-                                    class="text-primary hover:underline">Ver certificado</a>
-                            </p>
-                        </div>
+                        <!-- 2. Linux -->
                         <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
                             <h4 class="font-semibold text-lg mb-1">Linux</h4>
                             <p class="text-sm text-zinc-400">Hola Mundo —
@@ -299,14 +273,67 @@
                                     class="text-primary hover:underline">Ver certificado</a>
                             </p>
                         </div>
+                        <!-- 3. SQL Sin Fronteras -->
                         <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
-                            <h4 class="font-semibold text-lg mb-1">Ultimate GIT + GITHUB</h4>
+                            <h4 class="font-semibold text-lg mb-1">SQL Sin Fronteras</h4>
                             <p class="text-sm text-zinc-400">Hola Mundo —
-                                <a href="https://academia.holamundo.io/certificates/sabnup3pmj" target="_blank"
+                                <a href="https://academia.holamundo.io/certificates/f6gb9vc89t" target="_blank"
                                     class="text-primary hover:underline">Ver certificado</a>
                             </p>
                         </div>
+
+                        <!-- Additional certificates - hidden by default -->
+                        <div id="additional-certificates" class="hidden space-y-4">
+                            <!-- 4. Ultimate GIT + GITHUB -->
+                            <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                                <h4 class="font-semibold text-lg mb-1">Ultimate GIT + GITHUB</h4>
+                                <p class="text-sm text-zinc-400">Hola Mundo —
+                                    <a href="https://academia.holamundo.io/certificates/sabnup3pmj" target="_blank"
+                                        class="text-primary hover:underline">Ver certificado</a>
+                                </p>
+                            </div>
+                            <!-- 5. Prompt Engineering -->
+                            <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                                <h4 class="font-semibold text-lg mb-1">Prompt Engineering</h4>
+                                <p class="text-sm text-zinc-400">Hola Mundo —
+                                    <a href="https://academia.holamundo.io/certificates/b4cbubfxhh" target="_blank"
+                                        class="text-primary hover:underline">Ver certificado</a>
+                                </p>
+                            </div>
+                            <!-- 6. Microsoft Azure -->
+                            <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                                <h4 class="font-semibold text-lg mb-1">Microsoft Azure</h4>
+                                <p class="text-sm text-zinc-400">Microsoft —
+                                    <a href="https://coursera.org/share/600b8b094aae2c85861a7f0ba7e2d74c"
+                                        target="_blank" class="text-primary hover:underline">Ver certificado</a>
+                                </p>
+                            </div>
+                            <!-- 7. Introduction to Networks -->
+                            <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                                <h4 class="font-semibold text-lg mb-1">Introduction to Networks</h4>
+                                <p class="text-sm text-zinc-400">Cisco —
+                                    <a href="https://www.credly.com/badges/14675e82-62fc-4b6b-9c27-c35db2764168/linked_in_profile"
+                                        target="_blank" class="text-primary hover:underline">Ver certificado</a>
+                                </p>
+                            </div>
+                            <!-- 8. Data & Cybersecurity -->
+                            <div class="bg-zinc-950 p-4 rounded-lg card-hover border border-zinc-800">
+                                <h4 class="font-semibold text-lg mb-1">Data & Cybersecurity</h4>
+                                <p class="text-sm text-zinc-400">Coursera —
+                                    <a href="https://coursera.org/share/53b7b7c32953d9ceff5eb8f9cac1ee1d"
+                                        target="_blank" class="text-primary hover:underline">Ver certificado</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Toggle button -->
+                    <button id="toggle-certificates"
+                        class="mt-4 w-full py-2 px-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 border border-zinc-700 hover:border-primary">
+                        <span id="toggle-certificates-text">Ver todos los certificados</span>
+                        <i id="toggle-certificates-icon"
+                            class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
                 </div>
             </div>
         </div>
