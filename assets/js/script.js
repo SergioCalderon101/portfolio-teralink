@@ -1,14 +1,18 @@
 // SCRIPT LOADED - Testing
 console.log('===== SCRIPT.JS LOADED =====');
 
-// Dark mode is permanent - no toggle needed
-const html = document.documentElement;
-html.classList.add('dark');
-console.log('Dark mode activated');
+// Wrap all DOM-dependent code in DOMContentLoaded to ensure elements are ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('===== DOM CONTENT LOADED =====');
 
-// Mobile Menu Toggle
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
+    // Dark mode is permanent - no toggle needed
+    const html = document.documentElement;
+    html.classList.add('dark');
+    console.log('Dark mode activated');
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
 if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener('click', () => {
@@ -278,3 +282,5 @@ if (toggleCertificatesBtn && additionalCertificates && toggleText && toggleIcon)
 } else {
     console.log('ERROR: Some elements not found!');
 }
+
+}); // End of DOMContentLoaded
