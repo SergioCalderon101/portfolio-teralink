@@ -1,14 +1,8 @@
-// SCRIPT LOADED - Testing
-console.log('===== SCRIPT.JS LOADED =====');
-
 // Wrap all DOM-dependent code in DOMContentLoaded to ensure elements are ready
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('===== DOM CONTENT LOADED =====');
-
     // Dark mode is permanent - no toggle needed
     const html = document.documentElement;
     html.classList.add('dark');
-    console.log('Dark mode activated');
 
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -69,8 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    console.log('Checkpoint 1: After Scroll Top Button');
-
     // Intersection Observer for fade-in animations
     const observerOptions = {
         threshold: 0.1,
@@ -116,8 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-
-    console.log('Checkpoint 2: After Navigation Highlighting');
 
     window.addEventListener('scroll', highlightNavigation);
 
@@ -182,8 +172,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    console.log('Checkpoint 3: After Parallax Effect');
-
     // Dynamic typing effect for roles
     const roles = ['Software Engineer', 'Backend Developer', 'Python Developer', 'Database Architect'];
     const roleElement = document.getElementById('typing-role');
@@ -239,33 +227,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    console.log('Checkpoint 4: After Scroll Progress Bar');
-
     // Toggle Certificates
-    console.log('===== STARTING TOGGLE CERTIFICATES SECTION =====');
     const toggleCertificatesBtn = document.getElementById('toggle-certificates');
     const additionalCertificates = document.getElementById('additional-certificates');
     const toggleText = document.getElementById('toggle-certificates-text');
     const toggleIcon = document.getElementById('toggle-certificates-icon');
 
-    // Debug: log what elements were found
-    console.log('Toggle Certificates Debug:');
-    console.log('- toggleCertificatesBtn:', toggleCertificatesBtn);
-    console.log('- additionalCertificates:', additionalCertificates);
-    console.log('- toggleText:', toggleText);
-    console.log('- toggleIcon:', toggleIcon);
-
     if (toggleCertificatesBtn && additionalCertificates && toggleText && toggleIcon) {
-        console.log('All elements found! Adding click listener...');
-
         // Detect language from HTML lang attribute
         const isSpanish = document.documentElement.lang === 'es';
         const showAllText = isSpanish ? 'Ver todos los certificados' : 'Show all certificates';
         const showLessText = isSpanish ? 'Ver menos' : 'Show less';
 
         toggleCertificatesBtn.addEventListener('click', function () {
-            console.log('Button clicked!');
-
             const isHidden = additionalCertificates.classList.contains('hidden');
 
             if (isHidden) {
@@ -278,8 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 toggleIcon.style.transform = 'rotate(0deg)';
             }
         });
-    } else {
-        console.log('ERROR: Some elements not found!');
     }
 
 }); // End of DOMContentLoaded
