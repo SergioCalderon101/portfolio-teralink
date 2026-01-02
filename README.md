@@ -10,11 +10,11 @@ Portafolio personal minimalista que presenta proyectos, habilidades técnicas, e
 
 ## 🛠️ Tecnologías
 
-- HTML5
-- Tailwind CSS (CDN)
-- JavaScript Vanilla
-- Font Awesome
-- Google Fonts (Inter)
+- HTML5.
+- Tailwind CSS (CDN).
+- JavaScript Vanilla.
+- Font Awesome.
+- Google Fonts (Inter).
 
 ## 📂 Estructura
 
@@ -34,3 +34,4 @@ PORTFOLIO_TRKLN/
 ---
 
 © 2025 Sergio Calderon
+
