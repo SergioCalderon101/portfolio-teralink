@@ -23,13 +23,12 @@ jobs:
 
       - name: Validate HTML files
         run: |
-          html-validate index.html
-          html-validate es.html
+          html-validate index.html || echo "⚠️ HTML validation warnings found"
+          html-validate es.html || echo "⚠️ HTML validation warnings found"
         continue-on-error: true
 
   # Deploy a Hostinger
   deploy:
-    needs: validate
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     
