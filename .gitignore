@@ -1,0 +1,123 @@
+# Archivos de configuración sensibles de Hostinger
+*.conf
+.ftpconfig
+.ftppass
+.deployconfig
+sftp-config.json
+deployment-config.json
+
+# Credenciales y claves
+*.key
+*.pem
+*.p12
+*.pfx
+.env
+.env.local
+.env.production
+.env.*.local
+credentials.json
+secrets.json
+config.php
+wp-config.php
+
+# Archivos del sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Dependencias de Node.js (si las hay en el futuro)
+node_modules/
+jspm_packages/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Archivos temporales y caché
+*.tmp
+*.temp
+*.cache
+.cache/
+.temp/
+.sass-cache/
+*.css.map
+*.js.map
+
+# Backups
+*.bak
+*.backup
+*.old
+*.orig
+*~
+*.swp
+.*.swp
+
+# Archivos comprimidos (a menos que sean parte del proyecto)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Archivos de base de datos local
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# Carpetas de build/dist (descomentar si usas herramientas de build)
+# dist/
+# build/
+# out/
+
+# Archivos generados por CMS
+.htaccess.backup
+error_log
+php_errorlog
+
+# Archivos de versiones alternativas
+*.draft
+*.test
+
+# Git
+*.orig
+*.rej
+
+# Archivos de certificados SSL (si los manejas localmente)
+*.crt
+*.cer
+*.der
+
+# Otros archivos sensibles
+TODO.md
+NOTES.md
+.notes/
