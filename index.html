@@ -23,104 +23,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <style>
-        * {
-            border-color: #27272a;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #09090b;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #27272a;
-            border-radius: 9999px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #3f3f46;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-balance {
-            text-wrap: balance;
-        }
-
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .skill-tag {
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-            color: white;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fadeInUp {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .navbar-blur {
-            backdrop-filter: blur(12px);
-            background-color: rgba(9, 9, 11, 0.9);
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .animate-blink {
-            animation: blink 1s infinite;
-            color: #60a5fa;
-        }
-    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css?v=1.0">
 
     <script>
         tailwind.config = {
@@ -148,15 +52,15 @@
     <nav class="fixed w-full top-0 z-50 navbar-blur border-b border-zinc-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="#home" class="text-2xl font-bold gradient-text">SC</a>
+                <a href="#home" class="text-2xl font-bold gradient-text logo-glow">SC</a>
 
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#home" class="hover:text-primary transition-colors">Home</a>
-                    <a href="#about" class="hover:text-primary transition-colors">About</a>
-                    <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
-                    <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
-                    <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
-                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                    <a href="#home" class="nav-link hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="nav-link hover:text-primary transition-colors">About</a>
+                    <a href="#experience" class="nav-link hover:text-primary transition-colors">Experience</a>
+                    <a href="#projects" class="nav-link hover:text-primary transition-colors">Projects</a>
+                    <a href="#skills" class="nav-link hover:text-primary transition-colors">Skills</a>
+                    <a href="#contact" class="nav-link hover:text-primary transition-colors">Contact</a>
 
                     <!-- Language Switcher -->
                     <div class="flex items-center space-x-2 border-l border-zinc-700 pl-6 ml-2">
@@ -352,17 +256,17 @@
         <div class="max-w-4xl mx-auto">
             <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Work Experience</h2>
 
-            <div class="relative border-l-2 border-zinc-800 ml-3 md:ml-6 space-y-12">
+            <div class="relative border-l-2 border-zinc-800 ml-3 md:ml-6 space-y-12 timeline-container">
                 <!-- Experience Item 1 -->
                 <div class="relative pl-8 md:pl-12 group">
                     <!-- Dot -->
                     <div
-                        class="absolute -left-[9px] top-0 w-5 h-5 rounded-full bg-zinc-950 border-2 border-zinc-600 group-hover:border-primary transition-colors duration-300">
+                        class="timeline-dot absolute -left-[9px] top-0 w-5 h-5 rounded-full bg-zinc-950 border-2 border-zinc-600 group-hover:border-primary transition-colors duration-300">
                     </div>
 
                     <!-- Content -->
                     <div
-                        class="bg-zinc-900 p-6 rounded-lg border border-zinc-800 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
+                        class="timeline-card bg-zinc-900 p-6 rounded-lg border border-zinc-800 group-hover:border-primary/50 transition-all duration-300 shadow-lg">
                         <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                             <div>
                                 <h3 class="text-xl font-bold text-white group-hover:text-primary transition-colors">IT
@@ -405,8 +309,8 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="bg-zinc-950 rounded-lg overflow-hidden shadow-lg card-hover border border-zinc-800">
-                    <div class="p-6">
+                <div class="glass-card glow-hover tilt-card rounded-lg overflow-hidden shadow-lg border border-zinc-800">
+                    <div class="p-6 tilt-content">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-xl font-bold">Record Management System</h3>
                             <a href="https://github.com/SergioCalderon101/user-management" target="_blank"
@@ -430,8 +334,8 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="bg-zinc-950 rounded-lg overflow-hidden shadow-lg card-hover border border-zinc-800">
-                    <div class="p-6">
+                <div class="glass-card glow-hover tilt-card rounded-lg overflow-hidden shadow-lg border border-zinc-800">
+                    <div class="p-6 tilt-content">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-xl font-bold">ChatBot - Synapse AI</h3>
                             <a href="https://github.com/SergioCalderon101/Project-Synapse" target="_blank"
@@ -454,8 +358,8 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="bg-zinc-950 rounded-lg overflow-hidden shadow-lg card-hover border border-zinc-800">
-                    <div class="p-6">
+                <div class="glass-card glow-hover tilt-card rounded-lg overflow-hidden shadow-lg border border-zinc-800">
+                    <div class="p-6 tilt-content">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-xl font-bold">Portfolio</h3>
                             <div class="flex items-center gap-2">
@@ -540,25 +444,25 @@
                         <i class="fas fa-language text-primary mr-3"></i>
                         Languages
                     </h3>
-                    <div class="space-y-3">
+                    <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between mb-1">
+                            <div class="flex justify-between mb-2">
                                 <span>Spanish</span>
                                 <span class="text-primary font-semibold">Native</span>
                             </div>
-                            <div class="w-full bg-zinc-800 rounded-full h-2">
-                                <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full"
-                                    style="width: 100%"></div>
+                            <div class="w-full bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                                <div class="progress-bar-animated bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full progress-bar-glow"
+                                    data-width="100"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1">
+                            <div class="flex justify-between mb-2">
                                 <span>English</span>
                                 <span class="text-primary font-semibold">B1+</span>
                             </div>
-                            <div class="w-full bg-zinc-800 rounded-full h-2">
-                                <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full"
-                                    style="width: 70%"></div>
+                            <div class="w-full bg-zinc-800 rounded-full h-2.5 overflow-hidden">
+                                <div class="progress-bar-animated bg-gradient-to-r from-primary to-secondary h-2.5 rounded-full progress-bar-glow"
+                                    data-width="70"></div>
                             </div>
                         </div>
                     </div>
@@ -577,8 +481,8 @@
 
             <div class="grid md:grid-cols-3 gap-6">
                 <div
-                    class="p-6 bg-zinc-950 rounded-lg border border-zinc-800 hover:border-primary hover:-translate-y-1 transition-all duration-300">
-                    <i class="fas fa-map-marker-alt text-4xl text-primary mb-4"></i>
+                    class="p-6 glass-card glow-hover rounded-lg border border-zinc-800">
+                    <i class="fas fa-map-marker-alt text-4xl text-primary mb-4 contact-icon inline-block"></i>
                     <h3 class="font-semibold mb-2">Location</h3>
                     <p class="text-zinc-400 text-sm">
                         Zapopan, Guadalajara
@@ -586,8 +490,8 @@
                 </div>
 
                 <a href="https://www.linkedin.com/in/sergio-calderon-sanpedro/" target="_blank"
-                    class="p-6 bg-zinc-950 rounded-lg border border-zinc-800 hover:border-primary hover:-translate-y-1 transition-all duration-300 block">
-                    <i class="fab fa-linkedin text-4xl text-primary mb-4"></i>
+                    class="p-6 glass-card glow-hover rounded-lg border border-zinc-800 block">
+                    <i class="fab fa-linkedin text-4xl text-primary mb-4 contact-icon inline-block"></i>
                     <h3 class="font-semibold mb-2">LinkedIn</h3>
                     <p class="text-zinc-400 text-sm">
                         Professional Profile
@@ -595,8 +499,8 @@
                 </a>
 
                 <a href="https://github.com/SergioCalderon101" target="_blank"
-                    class="p-6 bg-zinc-950 rounded-lg border border-zinc-800 hover:border-primary hover:-translate-y-1 transition-all duration-300 block">
-                    <i class="fab fa-github text-4xl text-primary mb-4"></i>
+                    class="p-6 glass-card glow-hover rounded-lg border border-zinc-800 block">
+                    <i class="fab fa-github text-4xl text-primary mb-4 contact-icon inline-block"></i>
                     <h3 class="font-semibold mb-2">GitHub</h3>
                     <p class="text-zinc-400 text-sm">
                         Repositories
@@ -619,7 +523,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="assets/js/script.js?v=2.0"></script>
+    <script src="assets/js/script.js?v=5.0"></script>
 </body>
 
 </html>

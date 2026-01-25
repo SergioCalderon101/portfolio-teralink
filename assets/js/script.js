@@ -216,15 +216,105 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 2000);
     }
 
-    // Scroll Progress Bar
+    // Scroll Progress Bar & Navbar Shadow
     const scrollProgressBar = document.getElementById('scroll-progress');
-    if (scrollProgressBar) {
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const navbar = document.querySelector('nav');
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+        // Progress bar
+        if (scrollProgressBar) {
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             scrollProgressBar.style.width = scrolled + '%';
+        }
+
+        // Navbar shadow on scroll
+        if (navbar) {
+            if (winScroll > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        }
+    });
+
+    // === TILT EFFECT FOR CARDS ===
+    const tiltCards = document.querySelectorAll('.tilt-card');
+
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
         });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+
+    // === ANIMATED PROGRESS BARS ===
+    const progressBars = document.querySelectorAll('.progress-bar-animated');
+
+    const progressObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const targetWidth = bar.getAttribute('data-width');
+                // Small delay for visual effect
+                setTimeout(() => {
+                    bar.style.width = targetWidth + '%';
+                }, 200);
+                // Unobserve after animation
+                progressObserver.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    progressBars.forEach(bar => {
+        bar.style.width = '0%';
+        progressObserver.observe(bar);
+    });
+
+    // === TIMELINE ANIMATIONS ===
+    const timelineContainer = document.querySelector('.timeline-container');
+    const timelineDots = document.querySelectorAll('.timeline-dot');
+    const timelineCards = document.querySelectorAll('.timeline-card');
+
+    if (timelineContainer) {
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate dots with stagger
+                    timelineDots.forEach((dot, index) => {
+                        setTimeout(() => {
+                            dot.classList.add('animate');
+                        }, index * 200);
+                    });
+
+                    // Animate cards with stagger
+                    timelineCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate');
+                        }, index * 300 + 100);
+                    });
+
+                    // Unobserve after animation triggered
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        timelineObserver.observe(timelineContainer);
     }
 
     // Toggle Certificates
