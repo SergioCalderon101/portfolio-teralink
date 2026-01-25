@@ -1,0 +1,11 @@
+# Sitios que bloquean bots/crawlers
+https://academia.holamundo.io/
+https://www.linkedin.com/
+https://linkedin.com/
+
+# Google Fonts (falsos positivos - solo raíz falla)
+https://fonts.googleapis.com/$
+https://fonts.gstatic.com/$
+
+# Propio sitio (puede tener timeout durante CI)
+https://teralink.tech/
