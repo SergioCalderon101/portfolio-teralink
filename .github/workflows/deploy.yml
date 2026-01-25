@@ -23,12 +23,12 @@ jobs:
 
       - name: Validate HTML files
         run: |
-          html-validate index.html || echo "⚠️ HTML validation warnings found"
-          html-validate es.html || echo "⚠️ HTML validation warnings found"
-        continue-on-error: true
+          html-validate index.html
+          html-validate es.html
 
   # Deploy a Hostinger
   deploy:
+    needs: validate
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     
@@ -39,10 +39,10 @@ jobs:
       - name: Deploy to Hostinger via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 82.180.172.63
+          host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          port: 65002
+          port: ${{ secrets.SSH_PORT }}
           script: |
             cd ~/domains/teralink.tech/public_html
             git pull origin master
