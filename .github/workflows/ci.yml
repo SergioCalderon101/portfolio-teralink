@@ -7,6 +7,25 @@ on:
     branches: [ master, develop ]
 
 jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install HTML Validator
+        run: npm install -g html-validate
+
+      - name: Validate HTML files
+        run: |
+          html-validate index.html
+          html-validate es.html
+
   lint:
     runs-on: ubuntu-latest
     steps:
