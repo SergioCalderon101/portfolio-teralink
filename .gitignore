@@ -55,10 +55,9 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-# Dependencias de Node.js (si las hay en el futuro)
+# Dependencias de Node.js
 node_modules/
 jspm_packages/
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
@@ -94,10 +93,11 @@ pnpm-lock.yaml
 *.sqlite3
 *.db
 
-# Carpetas de build/dist (descomentar si usas herramientas de build)
-# dist/
-# build/
-# out/
+# Next.js
+.next/
+out/
+dist/
+build/
 
 # Archivos generados por CMS
 .htaccess.backup
@@ -121,3 +121,4 @@ php_errorlog
 TODO.md
 NOTES.md
 .notes/
+.vercel

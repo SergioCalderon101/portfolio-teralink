@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mi",
+    "experience": "Experiencia",
+    "saas": "SaaS",
+    "projects": "Proyectos",
+    "skills": "Skills",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "name": "SERGIO CALDERON",
+    "role": "Software Engineer",
+    "location": "Zapopan, Guadalajara.",
+    "viewProjects": "Ver Proyectos",
+    "linkedin": "LinkedIn"
+  },
+  "about": {
+    "title": "Sobre Mi",
+    "bio": "Soy Junior Software Engineer especializado en desarrollo backend con Python y bases de datos SQL (MySQL, PostgreSQL). Tengo experiencia con Java, JS, HTML y CSS, ademas de trabajar en entornos Linux usando Git para gestionar mis proyectos. Me interesa especialmente la inteligencia artificial y la automatizacion, y busco seguir creciendo como desarrollador para integrar la IA en soluciones backend solidas y eficientes.",
+    "education": "Educacion",
+    "university": "Universidad del Valle de Mexico",
+    "degree": "COMPUTER SYSTEMS ENGINEERING",
+    "universityLocation": "Zapopan, Guadalajara",
+    "graduationYear": "2027",
+    "educationDescription": "Formacion en desarrollo de software, redes, bases de datos, inteligencia artificial y ciberseguridad.",
+    "featuredCourses": "Cursos Destacados:",
+    "courses": [
+      "Programacion Orientada a Objetos (OOP)",
+      "Bases de Datos Relacionales & Avanzadas",
+      "Programacion Concurrente",
+      "Sistemas Basados en Conocimiento",
+      "Seguridad Informatica & Forense Digital",
+      "Ciberseguridad de Redes"
+    ],
+    "certifications": "Certificaciones",
+    "viewCertificate": "Ver certificado",
+    "showAll": "Ver todos los certificados",
+    "showLess": "Ver menos"
+  },
+  "experience": {
+    "title": "Experiencia Laboral",
+    "items": [
+      {
+        "role": "IT INTERN",
+        "company": "Comercializadora Frangrit",
+        "period": "Jun 2025 - Sep 2025",
+        "bullets": [
+          "Disene flujos de trabajo internos personalizando vistas Odoo (XML, Python, JavaScript, SQL) para optimizar operaciones.",
+          "Construi y lance un kiosco de verificacion de precios y un catalogo de productos responsive con inventario en tiempo real.",
+          "Soporte tecnico, informes Power BI/Excel y administracion de WordPress/cPanel."
+        ]
+      }
+    ]
+  },
+  "saas": {
+    "title": "Soluciones SaaS",
+    "brand": "NeuroFlow AI",
+    "description": "En NeuroFlow AI, ayudamos a las PyMEs a abrazar la transformacion digital con soluciones practicas de IA—desde automatizacion y marketing inteligente hasta asistencia personalizada con IA. Tu transformacion digital empieza aqui.",
+    "cta": "Interesado en nuestras soluciones para tu negocio?",
+    "ctaButton": "Contactanos",
+    "projects": [
+      {
+        "name": "PayControl",
+        "url": "https://www.paycontrol.app",
+        "description": "Plataforma de seguimiento de pagos e inventario para freelancers y pequenos negocios. Incluye seguimiento de pagos con estados personalizados, automatizacion de pagos recurrentes, gestion de contactos, monitoreo de activos, dashboards interactivos, espacios de trabajo en equipo y extraccion de facturas con IA.",
+        "tags": ["SaaS", "Fintech", "IA", "Inventario"]
+      },
+      {
+        "name": "Solvencia",
+        "url": "https://www.solvencia.app",
+        "description": "App de gestion de finanzas personales impulsada por IA con seguimiento de gastos sin friccion. Incluye escaneo inteligente de recibos que extrae automaticamente detalles de transacciones, sugerencias inteligentes de presupuesto, calendario de supervivencia financiera, analisis de burn rate y acceso multiplataforma via web, Telegram y WhatsApp.",
+        "tags": ["SaaS", "Fintech", "IA", "Multiplataforma"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "items": [
+      {
+        "name": "Record Management System",
+        "github": "https://github.com/SergioCalderon101/user-management",
+        "description": "Plataforma full-stack de gestion academica (Python/Flask, MySQL) con 2FA, proteccion CSRF, rate limiting y seguridad bcrypt. Implemente patron Application Factory, APIs RESTful, connection pooling, cache inteligente y dashboard modular responsive ES6—arquitecturado para escalabilidad, rendimiento y mantenibilidad.",
+        "tags": ["Python", "Flask", "MySQL", "REST API"]
+      },
+      {
+        "name": "ChatBot - Synapse AI",
+        "github": "https://github.com/SergioCalderon101/Project-Synapse",
+        "description": "Chatbot web interactivo con OpenAI APIs, REST endpoints, historial persistente, CRUD de chats, seleccion dinamica de modelos, validacion de entrada y manejo centralizado de errores usando Application Factory.",
+        "tags": ["Python", "Flask", "OpenAI", "REST API"]
+      },
+      {
+        "name": "Plataforma de Analisis de Datos",
+        "github": "https://github.com/SergioCalderon101/django-AnalisisdeDatos",
+        "description": "Plataforma full-stack de analisis de datos con procesamiento estadistico automatizado de datasets CSV. Integra machine learning para clasificacion de tipos de datos y recomendaciones de analisis contextual. Construida con backend Django REST Framework y frontend React, con visualizaciones interactivas en tiempo real. Implementa autenticacion JWT y versionado de modelos ML para actualizaciones sin interrupcion del servicio.",
+        "tags": ["Django REST Framework", "React", "Pandas", "Scikit-learn", "JWT", "Machine Learning"]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Habilidades Tecnicas",
+    "languages": "Lenguajes de Programacion",
+    "techStack": "Tech Stack",
+    "spokenLanguages": "Idiomas",
+    "programmingLanguages": ["Python", "Java", "JavaScript", "SQL", "Bash", "HTML", "CSS", "C++"],
+    "techStackItems": ["Flask", "Django", "MySQL", "PostgreSQL", "Linux", "Git", "GitHub", "Docker", "Terminal", "CI/CD", "Desarrollo Web", "ML/LLM", "Claude Code"],
+    "spoken": [
+      { "name": "Espanol", "level": "Nativo", "percent": 100 },
+      { "name": "Ingles", "level": "B1+", "percent": 70 }
+    ]
+  },
+  "contact": {
+    "title": "Trabajemos Juntos?",
+    "description": "Estoy disponible para oportunidades de desarrollo de software y colaboracion en proyectos interesantes.",
+    "location": "Ubicacion",
+    "locationValue": "Zapopan, Guadalajara",
+    "linkedin": "LinkedIn",
+    "linkedinValue": "Perfil profesional",
+    "github": "GitHub",
+    "githubValue": "Repositorios"
+  },
+  "footer": {
+    "copyright": "2025 Sergio Calderon. Todos los derechos reservados."
+  }
+}
