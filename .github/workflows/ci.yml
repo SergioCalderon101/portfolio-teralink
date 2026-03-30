@@ -7,7 +7,7 @@ on:
     branches: [ master, develop ]
 
 jobs:
-  validate-html:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,43 +17,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Install HTML Validator
-        run: npm install -g html-validate
-
-      - name: Validate HTML files
-        run: |
-          html-validate index.html
-          html-validate es.html
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          npm init -y
-          npm install --save-dev eslint@8
+        run: npm ci
 
-      - name: Lint JavaScript
-        run: npx eslint assets/js/script.js --no-eslintrc --env browser --env es2021
-        continue-on-error: true
+      - name: Lint
+        run: npm run lint
 
-  check-links:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Link Checker
-        uses: lycheeverse/lychee-action@v1
-        with:
-          args: --verbose --no-progress --exclude-file .lycheeignore '**/*.html' '**/*.md'
-          fail: true
+      - name: Build
+        run: npm run build
